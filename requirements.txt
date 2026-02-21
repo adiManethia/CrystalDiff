@@ -1,5 +1,11 @@
 mp-api
 python-dotenv
-streamlit 
-py3Dmol 
+
+
+
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch
+numpy
+streamlit
+py3Dmol
+stmol
