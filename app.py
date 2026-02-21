@@ -2,6 +2,7 @@ import streamlit as st
 import torch
 import numpy as np
 import py3Dmol
+import streamlit.components.v1 as components
 from stmol import showmol
 from src.model import CrystalDiffusionModel
 
@@ -176,7 +177,8 @@ with col2:
             
         # Render 3D
         view = make_view(pos, z)
-        showmol(view, height=500, width=800)
+        #showmol(view, height=500, width=800)
+        components.html(view._make_html(), height=500, width=800)
         
     else:
         st.info("👈 Select your chemistry on the left and click 'Generate Crystal' to start the AI.")
