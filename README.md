@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/release/python-380/)
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-red.svg)](https://pytorch.org/)
-[![UI: Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B.svg)](https://streamlit.io/)
+
 
 **A geometric deep learning framework for the inverse design of 3D crystal structures using E(n)-Equivariant Denoising Diffusion Probabilistic Models (DDPM).**
 
@@ -12,17 +12,25 @@
 
 ---
 
+## 🛠️ Technical Achievements & Work Done
+
+This project was built to demonstrate full-stack AI research engineering, from mathematical implementation to scientific validation and deployment. 
+
+**Core Implementations:**
+* **Geometric Deep Learning from Scratch:** Engineered custom **E(n)-Equivariant Message Passing** layers in pure PyTorch. I bypassed high-level graph wrapper libraries to explicitly program physical rotational invariance and distance-based message passing.
+* **Custom DDPM Architecture:** Implemented a continuous-time Denoising Diffusion Probabilistic Model to generate 3D point clouds from Gaussian noise.
+* **Property-Conditioned "Inverse Design":** Modified the diffusion backbone to accept macroscopic target properties (e.g., Band Gap). The model embeds this scalar into the reverse diffusion process to bias the generation toward desired material constraints.
+* **Automated Scientific Validation:** Wrote analytical scripts to compute the **Radial Distribution Function (RDF)** of the generated coordinates, mathematically proving the model learned Pauli Exclusion and covalent bonding limits without hard-coded physics rules.
+* **End-to-End Application:** Deployed the inference pipeline into an interactive **Streamlit** web application, featuring dynamic 3D molecule rendering (`py3Dmol`) and real-time bond length calculations.
+* **Scientific Data Engineering:** Built a robust data pipeline interfacing with the Materials Project API (`mp-api`) to harvest, filter, center-of-mass correct, and tensorize complex stable oxide datasets.
+
+---
+
 ## 🔬 Project Overview
 
 The discovery of novel materials (e.g., for solid-state batteries or photovoltaics) is traditionally bottlenecked by the computational cost of Density Functional Theory (DFT). **CrystalDiff** bypasses this by using Generative AI to "dream" chemically valid, stable structures in milliseconds.
 
-Moving beyond simple property prediction, this project implements a **Conditional Generative Foundation Model** trained on the Materials Project database. It allows users to condition the generation process on desired macroscopic properties (like Band Gap) and target specific atomic compositions.
-
-### Key Features
-* **Geometric Deep Learning from Scratch:** Implements custom **E(n)-Equivariant Message Passing** layers in raw PyTorch to guarantee physical rotational invariance without relying on high-level graph wrappers.
-* **Property-Conditioned Diffusion:** Injects target physical properties (e.g., Band Gap) into the reverse diffusion process to solve the "Inverse Design" problem.
-* **Scientific Validation:** Achieves realistic physical metrics, successfully learning Pauli Exclusion and covalent bond lengths (e.g., Ti-O at ~1.9 Å) purely from coordinate data.
-* **Interactive Web Interface:** Includes a fully functional Streamlit application for real-time 3D crystal generation, validation, and visualization.
+Moving beyond simple property prediction, this project serves as a **Conditional Generative Foundation Model** trained on the Materials Project database to understand the chemical rules of Perovskite Oxides ($ABO_3$).
 
 ---
 
@@ -47,7 +55,7 @@ $$x_i^{l+1} = x_i^l + \sum_{j \neq i} (x_i^l - x_j^l) \cdot \phi_{pos}(m_{ij})$$
 
 ---
 
-## 📊 Scientific Validation
+## 📊 Scientific Validation (The Physics Test)
 
 To prove the model learned actual chemistry and not just random point cloud distributions, we analyzed the **Radial Distribution Function (RDF)** of the generated crystals.
 
@@ -72,3 +80,24 @@ To prove the model learned actual chemistry and not just random point cloud dist
 git clone [https://github.com/YOUR_USERNAME/CrystalDiff.git](https://github.com/YOUR_USERNAME/CrystalDiff.git)
 cd CrystalDiff
 pip install -r requirements.txt
+```
+### 2. Fetch the Dataset 
+```bash
+python src/data_loader.py
+```
+
+### 3. Train the Model 
+Train the Equivariant Diffusion model.
+```bash
+python train.py
+```
+### 4. Run the Web Application
+```bash
+streamlit run app.py
+```
+
+## 📚 References & Inspiration
+
+1. [**E(n) Equivariant Graph Neural Networks**](https://arxiv.org/abs/2102.09844) (Satorras, Hoogeboom, & Welling, ICML 2021)
+2. [**Crystal Diffusion Variational Autoencoder (CDVAE)**](https://arxiv.org/abs/2110.06197) (Xie et al., ICLR 2022)
+3. [**Scaling deep learning for materials discovery (GNoME)**](https://www.nature.com/articles/s41586-023-06734-y) (Merchant et al. / DeepMind, Nature 2023)
