@@ -7,7 +7,7 @@
 
 **A geometric deep learning framework for the inverse design of 3D crystal structures using E(n)-Equivariant Denoising Diffusion Probabilistic Models (DDPM).**
 
-[![Streamlit Web App](cry_test.png)](https://cryst-diff.streamlit.app/)
+[![Streamlit Web App]](https://cryst-diff.streamlit.app/)
 *(CrystalDiff interactive web application generating novel Perovskite structures in real-time.)*
 
 ---
