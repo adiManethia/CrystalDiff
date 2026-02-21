@@ -42,7 +42,7 @@ with st.sidebar:
     """)
     
     st.markdown("---")
-    st.caption("Built with PyTorch & Streamlit by Aditya Mangal. Inspired by DeepMind's work on generative models for materials science.")
+    st.caption("Built with PyTorch & Streamlit by Aditya. Inspired by DeepMind's work on generative models for materials science.")
 
 # --- MAIN PAGE ---
 st.title("💎 CrystalDiff: Generative Material Design")
