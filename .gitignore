@@ -1,0 +1,4 @@
+.env 
+check_data.py
+check_inference.py
+*.xyz 
