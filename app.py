@@ -3,7 +3,7 @@ import torch
 import numpy as np
 import py3Dmol
 import streamlit.components.v1 as components
-from stmol import showmol
+#from stmol import showmol
 from src.model import CrystalDiffusionModel
 
 # --- PAGE CONFIGURATION ---
