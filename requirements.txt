@@ -2,3 +2,4 @@ mp-api
 python-dotenv
 streamlit 
 py3Dmol 
+torch
