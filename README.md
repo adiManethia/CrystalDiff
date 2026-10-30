@@ -77,7 +77,7 @@ To prove the model learned actual chemistry and not just random point cloud dist
 
 ### 1. Clone & Install
 ```bash
-git clone [https://github.com/YOUR_USERNAME/CrystalDiff.git](https://github.com/YOUR_USERNAME/CrystalDiff.git)
+git clone [https://github.com/YOUR_USERNAME/CrystalDiff.git](https://github.com/adiManethia/CrystalDiff.git)
 cd CrystalDiff
 pip install -r requirements.txt
 ```
